@@ -1,0 +1,2 @@
+# Este proyecto contiene funciones basicas de devops para testing en un curso impartido por la Universidad de Chile.
+# Puede hacer Prints de "Hola mundo", trabajar con api keys, suma, revisar palindromos y revisar si un numero es primo.
