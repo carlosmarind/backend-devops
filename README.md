@@ -12,6 +12,8 @@ Para construir el proyecto y dejar los ficheros finales en la carpeta __/dist__
 
     npm run build
 
+## Comentario Alexis Adrovez
+   Esto es un comentario personalizado....
     
 ## Lista de endpoints
 
