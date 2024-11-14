@@ -19,7 +19,7 @@ function suma(a: number, b: number) {
 function restar(a: number, b: number) {
     if (a === undefined || b === undefined) {
 
-        throw new Error("No se puede sumar indefinidos");
+        throw new Error("No se puede restar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
