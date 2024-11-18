@@ -7,6 +7,8 @@ function operar(operacion: string = "", a: number, b: number) {
         return multiplicar(a, b);
     } else if (operacion === 'dividir') {
         return dividir(a, b);
+    } else if (operacion === 'potenciar') {
+        return potenciar(a, b);
     }
 }
 
@@ -57,6 +59,14 @@ function dividir(a: number, b: number) {
     return NaN;
 }
 
+function potenciar(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+        throw new Error("No se pueden potenciar indefinidos");
+    }
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return NaN;
+    }
+    return a ** b;
+}
 
-
-export { suma, operar, restar,multiplicar,dividir };
+export { suma, operar, restar,multiplicar,dividir,potenciar };
