@@ -9,6 +9,8 @@ function operar(operacion: string = "", a: number, b: number) {
         return dividir(a, b);
     } else if (operacion === 'potenciar') {
         return potenciar(a, b);
+    } else if (operacion === 'factorial') {
+        return factorial(a, b);
     }
 }
 
@@ -69,4 +71,23 @@ function potenciar(a: number, b: number) {
     return a ** b;
 }
 
-export { suma, operar, restar,multiplicar,dividir,potenciar };
+function factorial(a: number) {
+    if (a === undefined) {
+        throw new Error("No se puede calcular el factorial de indefinido");
+    }
+    if (typeof a !== 'number') {
+        return NaN;
+    }
+    if (a < 0) {
+        throw new Error("No se puede calcular el factorial de un numero negativo");
+    }
+    return factorialRecursivo(a);
+}
+
+function factorialRecursivo(n) {
+    return (n != 1) ? n * factorial(n - 1) : 1;
+}
+
+
+
+export { suma, operar, restar,multiplicar,dividir,potenciar,factorial};
