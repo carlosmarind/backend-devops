@@ -10,7 +10,7 @@ function operar(operacion: string = "", a: number, b: number) {
     } else if (operacion === 'potenciar') {
         return potenciar(a, b);
     } else if (operacion === 'factorial') {
-        return factorial(a, b);
+        return factorial(a);
     }
 }
 
@@ -26,7 +26,6 @@ function suma(a: number, b: number) {
 
 function restar(a: number, b: number) {
     if (a === undefined || b === undefined) {
-
         throw new Error("No se puede restar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
@@ -52,13 +51,11 @@ function dividir(a: number, b: number) {
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
     }
-    try{
-        return a / b;
+    if(b === 0){
+        throw new Error("No se puede realizar la division");
     }
-    catch(error){
-        throw new Error(error.message);
-    }
-    return NaN;
+
+    return a/b;
 }
 
 function potenciar(a: number, b: number) {
@@ -84,8 +81,8 @@ function factorial(a: number) {
     return factorialRecursivo(a);
 }
 
-function factorialRecursivo(n) {
-    return (n != 1) ? n * factorial(n - 1) : 1;
+function factorialRecursivo(n:number): number {
+    return (n != 1) ? n * factorialRecursivo(n - 1) : 1;
 }
 
 
