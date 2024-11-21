@@ -1,5 +1,5 @@
 import { describe, test, expect } from "@jest/globals";
-import { suma, restar, operar } from "../../src/app/calculadora";
+import { suma, restar, operar, multiplicar, dividir, potencia, factorial } from "../../src/app/calculadora";
 
 describe("Bateria de test de calculadora", () => {
 
@@ -54,8 +54,9 @@ describe("Bateria de test de calculadora", () => {
         expect(operar("suma", 1, 5)).not.toBe(0);
 
         let a: any = 1;
-        let b: any = "a"
+        let b: any = "a";
         expect(operar("suma", a, b)).toBeNaN();
+
         a = 1;
         b = undefined;
         expect(() => operar("suma", a, b)).toThrowError("No se puede sumar indefinidos");
@@ -66,7 +67,58 @@ describe("Bateria de test de calculadora", () => {
 
         expect(operar(undefined, 10, 20)).not.toBeDefined();
 
-        expect(operar("multiplicar", 10, 20)).not.toBeDefined();
+        expect(operar("multiplicar", 10, 20)).toBe(200);
+
+        a = 10;
+        b = 20;
+        expect(operar("multiplicar", a, b)).not.toBe(100);
+
+        let f: any = 1;
+        let g: any = "a";
+        expect(operar("multiplicar", f, g)).toBeNaN();
+
+        a = 1;
+        b = undefined;
+        expect(() => operar("multiplicar", a, b)).toThrowError("No se puede multiplicar indefinidos");
+
+        a = 1;
+        b = 1;
+
+        expect(operar("dividir", a, b)).not.toBe(2);
+
+        expect(operar("dividir", f, g)).toBeNaN();
+
+        a = 1;
+        b = 0;
+        expect(() => operar("dividir", a, b)).toThrowError("No se puede dividir por 0");
+        
+        a = 1;
+        b = undefined;
+        expect(() => operar("dividir", a, b)).toThrowError("No se puede dividir indefinidos");
+
+        a = 2;
+        b = 3;
+
+        expect(operar("potencia", a, b)).toBe(8);
+
+        a = 1;
+        b = undefined;
+        expect(() => operar("potencia", a, b)).toThrowError("No se puede elevar a potencia indefinidos");
+
+        let l: any = "a";
+        expect(operar("potencia", l, 0)).toBeNaN();
+
+        let c = 0;
+        a = 3;
+        expect(operar("factorial", a, c)).toBe(6);
+
+        expect(() => operar("factorial", b, c)).toThrowError("No se puede calcular el factorial de indefinidos");
+        
+        expect(operar("factorial", a, c)).not.toBe(27);
+
+        expect(operar("factorial", l, 0)).toBeNaN();
+
+        expect(operar("factorial", 1, 0)).toBe(1);
     });
 
 });
