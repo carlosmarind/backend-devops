@@ -1,5 +1,5 @@
 import { describe, test, expect } from "@jest/globals";
-import { suma, restar, operar } from "../../src/app/calculadora";
+import { suma, restar, operar, multiplicar, dividir, potencia, factorial } from "../../src/app/calculadora";
 
 describe("Bateria de test de calculadora", () => {
 
@@ -64,9 +64,25 @@ describe("Bateria de test de calculadora", () => {
         b = undefined;
         expect(() => operar("resta", a, b)).toThrowError("No se puede restar indefinidos");
 
-        expect(operar(undefined, 10, 20)).not.toBeDefined();
+        'expect(operar(undefined, 10, 20)).not.toBeDefined();'
 
-        expect(operar("multiplicar", 10, 20)).not.toBeDefined();
+        'expect(operar("multiplicar", 10, 20)).not.toBeDefined();'
+
+        a = 10;
+        b = 20;
+        expect(operar("multiplicar", a, b)).not.toBe(100);
+
+        expect(operar("dividir", b, a)).toBe(2);
+
+        a = 2;
+        b = 3;
+
+        expect(operar("potencia", a, b)).toBe(8);
+
+        let c = 0;
+        expect(operar("factorial", b, c)).toBe(6);
+        expect(operar("factorial", b, c)).not.toBe(27);
+
     });
 
 });

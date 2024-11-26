@@ -1,5 +1,8 @@
 # Bienvenido al proyecto de backend para devops
 
+## Mensaje por cambio indicado en lab3
+## de Gerardo Ureta
+
 Este proyecto cuenta con los siguientes endpoints por defecto :
 
 ## Ejecucion del proyecto
