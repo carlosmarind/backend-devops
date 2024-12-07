@@ -27,5 +27,10 @@ pipeline {
                 }
             }
         }
+        stage("integracion nexus"){
+            sh "docker build -t backend-devops-gm ."
+            sh "docker tag backend-devops-gm:latest localhost:8082/backend-devops-gm:latest"
+            sh "docker push localhost:8082/backend-devops-gm:latest"
+        }
     }
 }
