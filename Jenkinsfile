@@ -29,9 +29,13 @@ pipeline {
         }
         stage("integracion nexus"){
             steps{
-                sh "docker build -t backend-devops-gm ."
-                sh "docker tag backend-devops-gm:latest localhost:8082/backend-devops-gm:latest"
-                sh "docker push localhost:8082/backend-devops-gm:latest"
+                script{
+                    docker.withRegistry("http://localhost:8082","registry"){
+                        sh "docker build -t backend-devops-gm ."
+                        sh "docker tag backend-devops-gm:latest localhost:8082/backend-devops-gm:latest"
+                        sh "docker push localhost:8082/backend-devops-gm:latest"
+                    }
+                }
             }
         }
     }
