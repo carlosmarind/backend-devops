@@ -28,17 +28,19 @@ pipeline {
             }
         }
         stage("quality assurance"){
-            agent{
-                docker{
+            agent {
+                docker {
                     label "contenedores"
                     image "sonarsource/sonar-scanner-cli"
                     reuseNode true
                 }
             }
-            stages("sonarqube"){
-                steps{
-                    withSonarQubeEnv("sonarqube"){
-                        sh "sonar-scanner"
+            stages{
+                stage("sonarqube"){
+                    steps{
+                        withSonarQubeEnv("sonarqube"){
+                            sh "sonar-scanner"
+                        }
                     }
                 }
             }
