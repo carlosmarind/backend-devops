@@ -38,3 +38,10 @@ Para construir el proyecto y dejar los ficheros finales en la carpeta __/dist__
 ## Configuracion de parametros basicos
 Los parametros de la aplicacion como el _api-key_ , el puerto del servidor http _port_ , o el usuario que levanta la aplicaci on _username_, se encuentran en el fichero config.ts.
 Este fichero toma los valores de las variables de ambiente del sistema y en caso de que no se encuentren disponibles, las configura con un valor por defecto.
+
+## Changelog
+Esta entrega contiene los siguientes cambios realizados por Jorge Ávila A.:
+
+* Modifica y sube el fichero Readme.md agregándole un comentario personalizado más tu nombre y apellido.
+* Crea un nuevo fichero llamado “Project.md” y escribe dentro una pequeña descripción del proyecto. Luego sube el fichero a tu repo github.
+* Cambia el puerto en el que levanta el servidor http del 3000 al 3001
