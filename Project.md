@@ -1,0 +1,1 @@
+Este proyecto es un backend de ejemplo usado para practicar Git, ramas y colaboración con Pull Requests.
