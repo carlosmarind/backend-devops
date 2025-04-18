@@ -11,7 +11,8 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "saludo": "echo 'Hola terminal'"
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +34,6 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.1.2",
     "tsx": "^4.7.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.8.3"
   }
 }

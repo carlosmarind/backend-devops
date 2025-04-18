@@ -1,0 +1,1 @@
+El proyecto en cuestión se define por el uso de laboratorios que conocen del tema
