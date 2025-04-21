@@ -14,9 +14,9 @@ function operar(operacion: string = "", a: number, b: number) {
     }
 }
 
-function suma(a: number, b: number) { //a = 1 , b=2
+function suma(a: number, b: number) { 
     if (a === undefined || b === undefined) {
-        throw new Error("No se puede sumar indefinidos");
+        console.log("No se puede sumar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
@@ -26,7 +26,7 @@ function suma(a: number, b: number) { //a = 1 , b=2
 
 function restar(a: number, b: number) {
     if (a === undefined || b === undefined) {
-        throw new Error("No se puede restar indefinidos");
+        console.log("No se puede restar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
@@ -35,9 +35,6 @@ function restar(a: number, b: number) {
 }
 
 function multiplica(a: number, b: number) {
-    if (a === undefined || b === undefined) {
-        throw new Error("No se puede multiplicar indefinidos");
-    }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
     }
@@ -46,7 +43,7 @@ function multiplica(a: number, b: number) {
 
 function divide(a: number, b: number) {
     if (a === undefined || b === undefined) {
-        throw new Error("No se puede dividir indefinidos");
+        console.log("No se puede dividir indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
@@ -56,7 +53,7 @@ function divide(a: number, b: number) {
 
 function potencia(a: number, b: number) {
     if (a === undefined || b === undefined) {
-        throw new Error("No se puede restar indefinidos");
+        console.log("No se puede restar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
@@ -66,7 +63,7 @@ function potencia(a: number, b: number) {
 
 function factorial(a: number) {
     if (a === undefined) {
-        throw new Error("No se puede potencia de indefinidos");
+        console.log("No se puede potencia de indefinidos");
     }
     if (typeof a !== 'number') {
         return NaN;
