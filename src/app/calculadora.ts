@@ -1,16 +1,18 @@
-function operar(operacion: string = "", a: number, b: number) {
+function operar(operacion: string = "", a: number, b?: number) {
     if (operacion === 'suma') {
-        return suma(a, b);
+        return suma(a, b!);
     } else if (operacion === 'resta') {
-        return restar(a, b);
+        return restar(a, b!);
     } else if (operacion === 'multiplicacion'){
-        return multiplicar(a,b);
+        return multiplicar(a,b!);
     } else if (operacion === 'division'){
-        return dividir(a,b);
+        return dividir(a,b!);
     } else if (operacion === 'potencia'){
-        return potencia(a,b);
+        return potencia(a,b!);
     } else if (operacion === 'factorial'){
         return factorial(a)
+    } else {
+        throw new Error("Operación no soportada");
     }
 }
 
@@ -83,6 +85,7 @@ function potencia(a: number, b: number) { //a = 1 , b=2
 
 
 function factorial(n: number) {
+    let resultado = 1;
     if (n === undefined) {
         throw new Error("No se puede calcular el factorial de un indefinido");
     }
@@ -95,7 +98,11 @@ function factorial(n: number) {
         throw new Error("El factorial no está definido para números negativos");
     }
 
-    let resultado = 1;
+    if (n === 0 ){
+        resultado = 1;
+    }
+
+    
     for (let i = 1; i <= n; i++) {
         resultado *= i;
     }
