@@ -1,5 +1,6 @@
 import { describe, test } from "@jest/globals";
-import { restar, suma } from "../../src/app/calculadora";
+import { operar, restar, suma, multiplica, divide, potencia,factorial} from "../../src/app/calculadora";
+
 
 describe("Suite de test de calculadora", () => {
 
@@ -40,4 +41,64 @@ describe("Suite de test de calculadora", () => {
         a = undefined
         expect(() => { restar(a, 1) }).toThrow("No se puede restar indefinidos");
     })
+
+    test("probar multiplicacion de enteros", () => {
+
+
+        let a: any = "10";
+        let b: any = "15";
+        expect(multiplica(a, 15)).toBeNaN();
+        expect(multiplica(a, b)).toBeNaN();
+
+        expect(multiplica(5, 2)).toBe(10);
+
+        a = undefined
+        expect(() => { multiplica(a, 15) }).toThrow("No se puede multiplicar indefinidos");
+
+    })
+
+    test("probar division de enteros", () => {
+
+        let a: any = "10";
+        let b: any = "15";
+        expect(divide(a, 15)).toBeNaN();
+        expect(divide(a, b)).toBeNaN();
+
+        expect(divide(10, 5)).toBe(2);
+
+        a = undefined
+        expect(() => { divide(a, 15) }).toThrow("No se puede dividir indefinidos");
+    })
+
+    test("probar potencias", () => {
+
+        expect(potencia(2, 3)).toBe(8);
+        expect(potencia(5, 0)).toBe(1);
+        expect(potencia(2, -3)).toBe(0.125);
+
+    })
+    test("probar operar de todas las operaciones", () => {
+
+        expect(operar('suma',1, 3)).toBe(4);
+        expect(operar('resta',10, 5)).toBe(5);
+        expect(operar('multiplica', 3, 2)).toBe(6);
+        expect(operar('divide',100, 50)).toBe(2);
+        expect(operar('potencia',5, 0)).toBe(1);
+        expect(operar('factorial',5,0)).toBe(120);
+        //expect(operar("",1,2)).toThrow("La operacion no existe");
+        /*let a: any = null;
+        let b: any = null;
+        expect(operar('factorial',a,b)).toThrow("Este parametro no puede ser nulo");*/
+
+    })
+
+    test("probar factorial", () => {
+        expect(factorial(-2)).toBeNaN();
+
+        expect(factorial(5)).toBe(120);
+        
+
+    })
+
+
 });
