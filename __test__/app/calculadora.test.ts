@@ -68,6 +68,9 @@ describe("Suite de test de calculadora", () => {
 
         a = undefined
         expect(() => { divide(a, 15) }).toThrow("No se puede dividir indefinidos");
+
+        expect(() => { divide(10, 0) }).toThrow("No se puede dividir por cero");
+
     })
 
     test("probar potencias", () => {
@@ -84,11 +87,11 @@ describe("Suite de test de calculadora", () => {
         expect(operar('multiplica', 3, 2)).toBe(6);
         expect(operar('divide',100, 50)).toBe(2);
         expect(operar('potencia',5, 0)).toBe(1);
-        expect(operar('factorial',5,0)).toBe(120);
-        //expect(operar("",1,2)).toThrow("La operacion no existe");
-        /*let a: any = null;
+        expect(operar('factorial',5, 0)).toBe(120);
+        expect(() => operar(undefined as any, 1, 1)).toThrow("La operacion no existe");
+        let a: any = undefined as any;
         let b: any = null;
-        expect(operar('factorial',a,b)).toThrow("Este parametro no puede ser nulo");*/
+        expect(() => operar('factorial', a, b)).toThrow("Este parametro no puede ser nulo");
 
     })
 
@@ -96,7 +99,10 @@ describe("Suite de test de calculadora", () => {
         expect(factorial(-2)).toBeNaN();
 
         expect(factorial(5)).toBe(120);
-        
+
+        let a: any = undefined;
+        let b: any = null;
+        expect(() => factorial(a)).toThrow("Este parametro no puede ser nulo");
 
     })
 

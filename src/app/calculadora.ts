@@ -10,10 +10,11 @@ function operar(operacion: string = "", a: number, b: number) {
     } else if (operacion === 'potencia') {
         return potencia(a, b);
     } else if (operacion === 'factorial') {
-        /*if (a === '') {
+        if (a === undefined) {
             throw new Error("Este parametro no puede ser nulo");
-        }*/
+        }
         return factorial(a);
+        
     }else{
         throw new Error("La operacion no existe");
     }
@@ -35,7 +36,6 @@ function suma(a: number, b: number) { //a = 1 , b=2
 
 function restar(a: number, b: number) {
     if (a === undefined || b === undefined) {
-
         throw new Error("No se puede restar indefinidos");
     }
     if (typeof a !== 'number' || typeof b !== 'number') {
@@ -56,6 +56,9 @@ function multiplica(a: number, b: number) {
 }
 
 function divide(a: number, b: number) {
+    if (b <= 0) {
+        throw new Error("No se puede dividir por cero");
+    }
     if (a === undefined || b === undefined) {
 
         throw new Error("No se puede dividir indefinidos");
@@ -77,6 +80,9 @@ function potencia(base: number, exponente: number):any {
 }
 
 function factorial(n: number) {
+    if (n === undefined) {
+        throw new Error("Este parametro no puede ser nulo");
+    }
     if (n < 0) return NaN; // Factorial de números negativos no está definido
     let resultado = 1;
     for (let i = 2; i <= n; i++) {
