@@ -6,7 +6,7 @@ pipeline {
                 sh "echo 'saludos desde el terminal'"
             }
         }
-        stage("segundo paso paso"){
+        stage("segundo paso"){
             steps{
                 echo "saludos desde jenkins"
             }
