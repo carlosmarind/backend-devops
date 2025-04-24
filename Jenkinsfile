@@ -26,6 +26,8 @@ pipeline {
                 }
             }
         }
-
+        stage("docker build"){
+            sh "docker build -t backend-devops ."
+        }
     }
 }
