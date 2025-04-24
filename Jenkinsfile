@@ -1,15 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage("primer paso"){
+        stage("instalacion de dependencias"){
             steps{
-                sh "echo 'saludos desde el terminal'"
+                sh "npm install"
             }
         }
-        stage("segundo paso"){
-            steps{
-                echo "saludos desde jenkins"
-            }
-        }
+
     }
 }
