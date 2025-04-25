@@ -35,7 +35,7 @@ pipeline {
             }
             stages{
                 stage("validacion de codigo"){
-                    step{
+                    steps{
                         sh 'sonar-scanner'
                     }
                 }
