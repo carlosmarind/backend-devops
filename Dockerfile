@@ -5,7 +5,8 @@
 #stage 2 de mi imagen multistage
 #EXPOSE 3000
 
-FROM node:22.14.0-bullseye
+#stage 1
+FROM node:22-alpine AS build
 
 WORKDIR /usr/app/
 
@@ -18,6 +19,16 @@ RUN npm install
 RUN npm run test
 
 RUN npm run build
+
+#stage 2
+
+FROM node:22-alpine as runner
+
+WORKDIR /usr/app/
+
+COPY --from=build /usr/app/dist ./dist
+COPY --from=build /usr/app/node_modules ./node_modules
+COPY --from=build /usr/app/package*.json ./
 
 EXPOSE 3000
 
