@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-devops
+  namespace: devops
+  labels:
+    app: backend-devops
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-devops
+  template:
+    metadata:
+      labels:
+        app: backend-devops
+    spec:
+      containers:
+      - name: backend-devops
+        image: localhost:8082/backend-devops
+        imagePullPolicy: Always
+        env:
+        - name: USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: backend-devops-cm
+              key: USERNAME
+        - name: APIKEY
+          valueFrom:
+            secretKeyRef:
+              name: backend-devops-sc
+              key: APIKEY
+      imagePullSecrets:
+      - name: regcred
