@@ -6,7 +6,7 @@ metadata:
   labels:
     app: backend-devops
 spec:
-  replicas: 3
+  replicas: 20
   selector:
     matchLabels:
       app: backend-devops
@@ -32,3 +32,39 @@ spec:
               key: APIKEY
       imagePullSecrets:
       - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-devops
+  namespace: devops
+  labels:
+    app: backend-devops
+spec:
+  selector:
+    app: backend-devops
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-grafana
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: grafana.devops.cl
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: prometheus-stack-grafana
+            port:
+              number: 80
