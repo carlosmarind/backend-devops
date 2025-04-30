@@ -51,20 +51,20 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-grafana
-  namespace: monitoring
+  name: ingress-backend-devops
+  namespace: devops
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-  - host: grafana.devops.cl
+  - host: app.devops.cl
     http:
       paths:
       - path: /
         pathType: ImplementationSpecific
         backend:
           service:
-            name: prometheus-stack-grafana
+            name: backend-devops
             port:
               number: 80
